@@ -3,7 +3,7 @@ plan:
   - title: 12 steps to become a better Javascript Code Golfer
     statement: statement.md
   - title: View solution
-  - statement: solution.md
+    statement: solution.md
 projects:
   javascript-code:
     root: /javascript-code
