@@ -20,7 +20,7 @@ can be shortened using :
 result = splitted.map(function(str) {
 	return parseInt(str);
 }).reduce(function(a, b) {
-	return parseInt(a) + parseInt(b);
+	return a + b;
 });
 ```
 
@@ -49,7 +49,6 @@ result = splitted.map(function(str) {
 can be shortened using :
 ```javascript
 result = splitted.map(str => parseInt(str)).reduce((a, b) => a + b);
-});
 ```
 
 @[Try to use the arrow function in the code beside]({command: 'node main.js -c 210 -u lambda', stubs: ['exercise.js'], layout: 'aside'})
