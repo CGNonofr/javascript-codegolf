@@ -11,7 +11,6 @@ var testcases = {
 };
 
 fs.readFile('exercise.js', 'utf8', function(err, data) {
-	console.log(data);
 	fs.writeFile('exercise.js', data + "\nmodule.exports = compute", function(err) {
 		var userFct;
 		try {
