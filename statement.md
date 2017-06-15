@@ -1,5 +1,5 @@
-@[Use reduce]({command: 'node main.js -c 230', stubs: ['exercise.js'], layout: 'aside'})
-@[Use map to parse]({command: 'node main.js -c 260', stubs: ['exercise.js'], layout: 'aside'})
+@[Use reduce]({command: 'node main.js -c 230 -u reduce', stubs: ['exercise.js'], layout: 'aside'})
+@[Use map to parse]({command: 'node main.js -c 260 -u map,reduce', stubs: ['exercise.js'], layout: 'aside'})
 @[Use lambda]({command: 'node main.js -c 210', stubs: ['exercise.js'], layout: 'aside'})
 @[Short parsing]({command: 'node main.js -c 196', stubs: ['exercise.js'], layout: 'aside'})
 @[Templates]({command: 'node main.js -c 194', stubs: ['exercise.js'], layout: 'aside'})
