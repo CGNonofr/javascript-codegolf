@@ -21,7 +21,9 @@ var features = {
 				cb();
 				return _map.apply(this, arguments);
 			};
-		}		
+		},
+		misuseError: 'You shouldn`t use Array.map',
+		unusedError: 'You should use Array.map'	
 	},
 	reduce: {
 		check: function(cb) {
@@ -30,7 +32,9 @@ var features = {
 				cb();
 				return _reduce.apply(this, arguments);
 			};
-		}		
+		},
+		misuseError: 'You shouldn`t use Array.reduce',
+		unusedError: 'You should use Array.reduce'		
 	}
 };
 
@@ -54,14 +58,14 @@ fs.readFile('exercise.js', 'utf8', function(err, data) {
 			console.log(`TECHIO> success false`);
 			return;
 		}
-		var unusedFeatures = useFeature.slice(0);
+		var unusedFeatures = useFeature.slice(0).filter(feat => features[feat]);
 		var wrongFeatures = [];
 		useFeature.forEach(function(feat) {
 			if (features[feat]) {
 				features[feat].check(() => {
-					var index = useFeature.indexOf(feat);
+					var index = unusedFeatures.indexOf(feat);
 					if (index >= 0) {
-						useFeature.splice(index, 1);
+						unusedFeatures.splice(index, 1);
 					}
 				});
 			}
@@ -76,7 +80,7 @@ fs.readFile('exercise.js', 'utf8', function(err, data) {
 				});
 			}
 		});
-		console.log(feat, wrongFeatures);
+
 		try {
 			var success = true;
 			for(var testcase in testcases) {
@@ -88,6 +92,11 @@ fs.readFile('exercise.js', 'utf8', function(err, data) {
 			}
 		} catch(error) {
 			console.log(error.stack.split('\n').slice(0, -2).join('\n'));			
+		}
+		unusedFeatures.forEach(feat => console.log(features[feat].unusedError));
+		wrongFeatures.forEach(feat => console.log(features[feat].misuseError));
+		if (unusedFeatures.length > 0 || wrongFeatures.length > 0) {
+			success = false;
 		}
 
 		var charCount = data.length;
