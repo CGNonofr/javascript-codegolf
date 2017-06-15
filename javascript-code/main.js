@@ -102,7 +102,7 @@ fs.readFile('exercise.js', 'utf8', function(err, data) {
 		var charCount = data.length;
 
 		if (charCount > maxCharCount) {
-			console.log(`You must remove ${charCount - maxCharCount} more character`);
+			console.log(`You must remove ${charCount - maxCharCount} more characters`);
 			success = false;
 		}
 		console.log(`TECHIO> success ${success}`)
