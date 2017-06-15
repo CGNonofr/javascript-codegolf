@@ -119,7 +119,7 @@ while(cond)
 # Always for instead of while
 
 A `while` can always be replaced by an equivalent `for` loop.
-To do so, we need to add 2 semi-colon, by the keyword if 2 char smaller.
+To do so, we need to add 2 semi-colon, but the keyword is 2 chars smaller.
 
 The fact is we can now use the initialization and the incrementation part without adding any whitespace of semi-colon:
 
@@ -175,9 +175,8 @@ array.reduce((a, b) => return +a + +b)
 
 # Use the `eval` function
 
-This trick is ...tricky. To sum all value of an array, we use a verbose syntax `implying a reduce`.
-
-The alternative is to generate an expression, inserting a `+` between each digit, then evaluating it
+This trick is ...tricky. To sum all values of an array, we use a verbose syntax implying a `reduce`.
+The alternative is to generate an expression, inserting a `+` between each digit, then evaluating it.
 
 `54879` become `5+4+8+7+9` which evaluate to `33`
 
