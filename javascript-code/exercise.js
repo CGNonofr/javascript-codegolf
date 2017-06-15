@@ -10,3 +10,6 @@ function compute(number) {
 	}
 	return result;
 }
+
+module.exports = compute
+module.exports = compute
