@@ -1,0 +1,8 @@
+title: Javascript CodeGolf
+plan:
+  - title: Javascript CodeGolf
+    statement: statement.md
+project:
+  javascript-code:
+    root: /javascript-code
+    runner: techio/node-npm-runner:1.1.0-node-7.4
