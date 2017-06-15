@@ -51,8 +51,19 @@ var features = {
 				cb();			
 			}
 		},
-		misuseError: 'You shouldn`t arrow function',
+		misuseError: 'You shouldn`t use arrow function',
 		unusedError: 'You should use an arrow function'		
+	},
+	'eval': {
+		check: function(code, cb) {
+			var _eval = eval;
+			eval = function() {
+				cb();
+				return _eval.apply(this, arguments);
+			};
+		},
+		misuseError: 'You shouldn`t use eval',
+		unusedError: 'You should use the eval function'		
 	}
 };
 
