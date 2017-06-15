@@ -15,7 +15,7 @@ fs.readFile('exercise.js', 'utf8', function(err, data) {
 	fs.writeFile('exercise.js', data + "\nmodule.exports = compute", function(err) {
 		var userFct;
 		try {
-			userFct = require('./_exercise.js');
+			userFct = require('./exercise.js');
 		} catch(error) {
 			if (error instanceof SyntaxError) {
 				console.log(error.stack.split('\n').slice(0, 3).join('\n'));

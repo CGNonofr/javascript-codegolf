@@ -13,3 +13,4 @@ function compute(number) {
 
 module.exports = compute
 module.exports = compute
+module.exports = compute
