@@ -4,7 +4,6 @@ plan:
     statement: statement.md
   - title: View solution
     statement: solution.md
-
 projects:
   javascript-code:
     root: /javascript-code
