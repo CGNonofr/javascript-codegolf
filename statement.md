@@ -15,7 +15,7 @@ for (var i = 0 ; i < splitted.length ; ++i) {
 result = sum;
 ```
  
-can be shortened using :
+can be replaced by :
 ```javascript
 result = splitted.map(function(str) {
 	return parseInt(str);
@@ -25,6 +25,8 @@ result = splitted.map(function(str) {
 ```
 
 @[Try to use the map/reduce in the code beside]({command: 'node main.js -c 260 -u map,reduce', stubs: ['exercise.js'], layout: 'aside'})
+
+This code is no shorter, but let's see if we can improve!
 
 ## Using Arrow functions
 
@@ -52,7 +54,30 @@ result = splitted.map(str => parseInt(str)).reduce((a, b) => a + b);
 ```
 
 @[Try to use the arrow function in the code beside]({command: 'node main.js -c 210 -u lambda', stubs: ['exercise.js'], layout: 'aside'})
-@[Short parsing]({command: 'node main.js -c 196', stubs: ['exercise.js'], layout: 'aside'})
+
+## Using Short parsing
+
+Instead of using `parseInt`, we can simply use the `+` operator, which cast string to integer
+```javascript
+return parseInt(str);
+```
+can be shortened using
+```javascript
+return +str;
+```
+
+We can also use this trick to do the opposite
+```javascript
+result.toString()
+```
+can be shortened using
+```javascript
+''+result
+```
+
+@[Try to use the short parsing in the code beside]({command: 'node main.js -c 196', stubs: ['exercise.js'], layout: 'aside'})
+
+
 @[Templates]({command: 'node main.js -c 194', stubs: ['exercise.js'], layout: 'aside'})
 @[Remove '{}', use comma]({command: 'node main.js -c 190', stubs: ['exercise.js'], layout: 'aside'})
 @[For instead of while]({command: 'node main.js -c 190 -u for', stubs: ['exercise.js'], layout: 'aside'})
