@@ -15,7 +15,7 @@ var testcases = {
 
 var features = {
 	map: {
-		check: function(cb) {
+		check: function(code, cb) {
 			var _map = Array.prototype.map;
 			Array.prototype.map = function() {
 				cb();
@@ -26,7 +26,7 @@ var features = {
 		unusedError: 'You should use Array.map'	
 	},
 	reduce: {
-		check: function(cb) {
+		check: function(code, cb) {
 			var _reduce = Array.prototype.reduce;
 			Array.prototype.reduce = function() {
 				cb();
@@ -35,6 +35,24 @@ var features = {
 		},
 		misuseError: 'You shouldn`t use Array.reduce',
 		unusedError: 'You should use Array.reduce'		
+	},
+	'for': {
+		check: function(code, cb) {
+			if (code.indexOf('for') >= 0) {
+				cb();			
+			}
+		},
+		misuseError: 'You shouldn`t use for',
+		unusedError: 'You should use a for instead of a while loop'		
+	},
+	'lambda': {
+		check: function(code, cb) {
+			if (code.indexOf('=>') >= 0) {
+				cb();			
+			}
+		},
+		misuseError: 'You shouldn`t arrow function',
+		unusedError: 'You should use an arrow function'		
 	}
 };
 
@@ -62,7 +80,7 @@ fs.readFile('exercise.js', 'utf8', function(err, data) {
 		var wrongFeatures = [];
 		useFeature.forEach(function(feat) {
 			if (features[feat]) {
-				features[feat].check(() => {
+				features[feat].check(data, () => {
 					var index = unusedFeatures.indexOf(feat);
 					if (index >= 0) {
 						unusedFeatures.splice(index, 1);
@@ -72,7 +90,7 @@ fs.readFile('exercise.js', 'utf8', function(err, data) {
 		});
 		dontUseFeature.forEach(function(feat) {
 			if (features[feat]) {
-				features[feat].check(() => {
+				features[feat].check(data, () => {
 					var index = wrongFeatures.indexOf(feat);
 					if (index < 0) {
 						wrongFeatures.push(feat);
