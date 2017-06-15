@@ -42,6 +42,13 @@ fs.readFile('exercise.js', 'utf8', function(err, data) {
 		} catch(error) {
 			console.log(error.stack.split('\n').slice(0, -2).join('\n'));			
 		}
+
+		var charCount = data.length;
+
+		if (charCount > maxCharCount) {
+			console.error(`You must remove #{charCount - maxCharCount} more character`);
+			success = false;
+		}
 		console.log(`TECHIO> success ${success}`)
 	});
 
